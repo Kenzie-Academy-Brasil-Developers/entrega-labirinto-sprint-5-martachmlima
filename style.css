@@ -1,0 +1,87 @@
+body{
+    text-align: center;
+    background-color: rgb(230, 215, 230);
+}
+
+header{
+    height: 35px;
+    background-color: rgb(147, 165, 185);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(15, 46, 66);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#gameSpace{
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+}
+
+.line{
+    display: flex;;
+    height: 40px;
+}
+
+.cell{
+    width: 40px;
+}
+
+.noWalk{
+    background-color: blue;
+}
+
+#start{
+    color: blue;
+    border: dotted blue 4px;
+    height: fit-content;
+    width: fit-content;
+    font-size: 25px;
+    border-radius: 70%;
+    padding: 5px;
+    position:absolute;
+    top: 60%;
+    left: -9%;
+}
+
+#finish{
+    color: blue;
+    border: dotted blue 4px;
+    height: fit-content;
+    width: fit-content;
+    font-size: 25px;
+    border-radius: 70%;
+    padding: 5px;position:absolute;
+    top: 53%;
+    right: -11%;
+}
+
+#player{
+    position: absolute;
+    background-color: plum;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    line-height: 2;
+    top: 60%;
+    transform: translate(0px, 0px);
+}
+
+#win{
+    position: absolute;
+    background-color: rgb(144 87 195);
+    color:rgb(230, 215, 230);
+    height: 168px;
+    width: 200px;
+    top: 36%;
+    left: 37%;
+    line-height: 6;
+    border-radius: 27px;
+    border: #1d1d1d solid 5px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
