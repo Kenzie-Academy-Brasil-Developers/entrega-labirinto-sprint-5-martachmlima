@@ -35,10 +35,6 @@ const labirinto = () => {
                 cell.classList.add("noWalk")
             }
 
-            if (map[i][j] === " "){
-                cell.classList.add("free")
-            }
-
             if (map[i][j] === "S"){
                 cell.setAttribute("id", "inicio")
             }
@@ -52,36 +48,65 @@ const labirinto = () => {
 
 labirinto()
 
+const start = document.getElementById("inicio")
+
 const jogador = document.createElement("div")
 jogador.setAttribute("id", "player")
 jogador.innerText = "player"
-main.appendChild(jogador)
+start.appendChild(jogador)
 
 const message = document.createElement("span")
 message.innerText = "Você ganhou!"
 message.setAttribute("id", "win")
 
-let playerTop = 0
+
+let column = 0
+let line = 9
+
 let playerLeft = 0
+let playerTop = 0
 
 
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
 
-    if (keyName === "ArrowDown" && playerTop < 160 && playerLeft !== 0 && playerLeft !== 800){
-        playerTop += 40
+    if (keyName === "ArrowDown"){
+        line = line +1
+        if (map[line][column] === "W" || map[line][column] === undefined){
+            playerTop += 0 
+            line = line -1
+        } else{
+            playerTop += 40 
+        }
     }
-    if (keyName === "ArrowUp" && playerTop > -320 && playerLeft !== 0 && playerLeft !== 800){
-        playerTop -= 40
+    if (keyName === "ArrowUp"){
+        line = line -1
+        if (map[line][column] === "W" || map[line][column] === undefined){
+            playerTop += 0 
+            line = line + 1
+        } else{
+            playerTop -= 40 
+        }
     }
-    if ((keyName === "ArrowLeft" && playerLeft > 40) || 
-        (keyName === "ArrowLeft" && playerLeft === 40 && playerTop === 0)){
-        playerLeft -= 40
+    if (keyName === "ArrowLeft"){
+        column = column -1
+        if (map[line][column] === "W" || map[line][column] === undefined){
+            playerLeft +=0
+            column = column +1
+        } else{
+            playerLeft -= 40
+        }
     }
-    if ((keyName === "ArrowRight" && playerLeft < 760) || 
-        (keyName === "ArrowRight" && playerLeft === 760 && playerTop === -40)){
-        playerLeft += 40
+    if (keyName === "ArrowRight"){
+        column = column +1
+        if (map[line][column] === "W"  || map[line][column] === undefined){
+            playerLeft +=0
+            column = column -1
+        } else{
+            playerLeft += 40
+        }
     }
+
 
     if (playerLeft === 800 && playerTop === -40){
         main.appendChild(message)
